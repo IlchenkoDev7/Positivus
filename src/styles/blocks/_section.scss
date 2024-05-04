@@ -1,0 +1,44 @@
+.section {
+    padding-block: var(--section-padding-y);
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+
+
+    @include tablet {
+        row-gap: 40px;
+    }
+
+    @include mobile {
+        row-gap: 30px;
+    }
+
+
+    &__header {
+        display: flex;
+        align-items: center;
+        column-gap: 80px;
+
+        @include tablet {
+            column-gap: 40px;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            row-gap: 25px;
+            text-align: center
+        }
+    }
+
+    &__description {
+        max-width: 580px;
+
+        @include tablet-with-min {
+            max-width: 450px;
+        }
+    }
+
+    &--hidden-x {
+        overflow-x: hidden;
+    }
+}

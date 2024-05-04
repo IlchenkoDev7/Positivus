@@ -1,0 +1,33 @@
+.button {
+    @include flex-content(true);
+
+    height: var(--button-height);
+    padding-inline: 35px;
+    font-size: 20px;
+    color: var(--color-gray);
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+    border-radius: 14px;
+
+    @include hover {
+        background-color: var(--color-main);
+        color: var(--color-dark);
+    }
+
+
+// Modificators
+    &--transparent {
+        background-color: transparent;
+    }
+
+    &--accent {
+        color: var(--color-dark);
+        background-color: var(--color-main);
+    
+        @include hover {
+          color: var(--color-main);
+          background-color: var(--color-dark);
+        }
+    }
+
+}

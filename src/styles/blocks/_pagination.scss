@@ -1,0 +1,23 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    column-gap: 19px;
+
+    @include mobile {
+        column-gap: 10px;
+    }
+
+    &__item {
+
+        svg {
+            @include mobile {
+                width: 15px
+            }
+        }
+        
+        &.is-current {
+            color: var(--color-main);
+        }
+
+    }
+}

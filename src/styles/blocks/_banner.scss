@@ -1,0 +1,63 @@
+.banner {
+    --bannerImageOffsetY: 24px; // Смещение картинки относительно родительского блока, чтобы вылазила за его пределы
+
+    padding-block: var(--bannerImageOffsetY);
+
+    @include tablet {
+        --bannerImageOffsetY: 0px;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-gray);
+        border-radius: var(--border-radius-large);
+
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        row-gap: 26px;
+        padding: 60px;
+
+        @include tablet {
+            padding: 50px;
+        }
+
+        @include mobile {
+            align-items: center;
+            row-gap: 20px;
+        }
+    }
+
+    &__title {
+        @include mobile {
+            text-align: center;
+        }
+    }
+
+    &__description {
+        max-width: 500px;
+
+        @include mobile {
+            text-align: center;
+        }
+    }
+
+    &__image {
+        margin-block: calc(var(--bannerImageOffsetY) * -1);
+        padding-right: 60px;
+
+        @include tablet {
+            max-width: 40%;
+            height: auto;
+        }
+    }
+}

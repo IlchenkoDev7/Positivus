@@ -1,0 +1,106 @@
+.service-card {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    min-height: 310px;
+    padding: 50px;
+    background-color: var(--color-gray);
+    border: var(--border);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow);
+
+    @include mobile {
+        display: grid;
+        grid-template-columns: auto auto;
+        row-gap: 27px;
+    }
+
+    &--main-bg {
+        background-color: var(--color-main);
+    }
+
+    &--dark-bg {
+        background-color: var(--color-dark);
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        row-gap: 30px;
+
+        @include mobile {
+            display: contents;
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        @include mobile {
+            grid-column: -1 / 1;
+        }
+    }
+
+    &__link {
+        --serviceCardLinkIconColor: var(--color-main);
+
+        display: inline-flex;
+        align-items: center;
+        font-size: 20px;
+        column-gap: 15px;
+
+        @include hover {
+            opacity: 0.7;
+        }
+
+        &-label {
+            @include mobile {
+                @include visually-hidden;
+            }
+        }
+
+        &--light {
+            --serviceCardLinkIconColor: var(--color-dark);
+            
+            color: var(--color-gray);
+        }
+
+        &-icon-wrapper {
+            @include flex-content;
+    
+            @include square(41px);
+    
+            background-color: currentColor;
+    
+            border-radius: 50%;
+    
+            svg {
+                color: var(--serviceCardLinkIconColor);
+            }
+        }
+
+        @include mobile {
+            align-self: end;
+        }
+
+    }
+
+    &__image {
+        align-self: center;
+
+        @include tablet-with-min {
+            max-width: 50%;
+            height: auto;
+        }
+
+        
+
+        @include mobile {
+            max-width: 165px;
+        }
+    }
+
+}

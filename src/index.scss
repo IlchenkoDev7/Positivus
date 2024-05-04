@@ -1,3 +1,62 @@
-.container {
-    background-color: beige;
-}
+@import 
+    'styles/normalize',
+
+    'styles/fonts',
+
+    'styles/media',
+
+    'styles/variables',
+
+    'styles/mixins',
+
+    'styles/utils',
+
+    'styles/globals';
+
+@import 
+    'styles/blocks/burger-button',
+    'styles/blocks/button',
+    'styles/blocks/grid',
+    'styles/blocks/header';
+
+@import 
+    'styles/blocks/cross-button',
+    'styles/blocks/mobile-overlay';
+    
+@import
+    'styles/blocks/section';
+
+@import
+    'styles/blocks/hero';
+
+@import
+    './styles/blocks/puddle-bg',
+    './styles/blocks/service-card',
+    './styles/blocks/banner',
+    './styles/blocks/services';
+
+@import 
+    'styles/blocks/studies';
+
+@import 
+    'styles/blocks/process';
+
+@import 
+    'styles/blocks/team-card',
+    'styles/blocks/team';
+
+@import 
+    'styles/blocks/pagination',
+    'styles/blocks/testimonials',
+    'styles/blocks/testimonial-card';
+
+
+@import 
+    'styles/blocks/field',
+    'styles/blocks/radios',
+    'styles/blocks/radio',
+    'styles/blocks/contact-us';
+
+@import
+    'styles/blocks/subscribe-form',
+    'styles/blocks/footer';

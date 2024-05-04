@@ -1,0 +1,36 @@
+.radio {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+    transition-duration: var(--transition-duration);
+  
+    @include hover {
+      opacity: 0.6;
+    }
+  
+    // Даёт возможность эмулятору, у которого внутренность при выборе -- это псевлоэлемент after скрывать и раскрывать этот элемент на основе привязки к основному radio input
+    &__input {
+      &:not(:checked) + .radio__emulator::after {
+        opacity: 0;
+      }
+    }
+  
+    &__emulator {
+      @include square(28px);
+  
+      position: relative;
+      background-color: var(--color-gray);
+      border: var(--border);
+      border-radius: 50%;
+  
+      &::after {
+        @include abs-center;
+        @include square(70%);
+  
+        content: '';
+        background-color: var(--color-main);
+        border-radius: inherit;
+        transition-duration: var(--transition-duration);
+      }
+    }
+  }

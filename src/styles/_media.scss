@@ -1,0 +1,97 @@
+// above необходим для вёрстки формата mobile first, то есть, это значит, что будет начинаться со следующего устройства (например mobile-above значит, что стили применятся, когда ширина будет минимум tablet)
+
+// media-запросы для конкретных устройств с min в названии миксина нужны, если происходит баг наслоения стилей и браузер оставляет стили предыдущего устройства
+
+$desktop-above: 1281px;
+$desktop: 1280px;
+
+$tablet-above: 1024px;
+$tablet: 1023px;
+
+$mobile-above: 768px;
+$mobile: 767px;
+
+$mobile-s-above: 481px;
+$mobile-s: 480px;
+
+// Общий media-запрос с максимальным и минимальным расширением
+@mixin media-with-max-and-min($maxWidth, $minWidth) {
+  @media (max-width: $maxWidth) and (min-width: $minWidth) {
+    @content;
+  }
+}
+
+@mixin desktop-above {
+  @media (min-width: $desktop-above) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-with-min {
+  @media (max-width: $desktop) and (min-width: $tablet-above) {
+    @content;
+  }
+}
+
+@mixin tablet-above {
+  @media (min-width: $tablet-above) {
+    @content;
+  }
+}
+
+@mixin tablet-with-min {
+  @media (max-width: $tablet) and (min-width: $mobile-above) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin mobile-above {
+	@media (min-width: $mobile-above) {
+	  @content;
+	}
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin mobile-s-above {
+  @media (min-width: $mobile-s-above) {
+    @content;
+  }
+}
+
+@mixin mobile-s {
+  @media (max-width: $mobile-s) {
+    @content;
+  }
+}
+
+// Необходим для правильного использования hover эффекта браузером на разных устройствах
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}

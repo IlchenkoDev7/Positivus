@@ -1,0 +1,104 @@
+.process {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        counter-reset: custom;
+        list-style: none;
+    }
+
+    &__accordion {
+        --indicatorVerticalRotate: 90deg;
+
+        padding: 40px 60px;
+        background-color: var(--color-gray);
+        border: var(--border);
+        border-radius: var(--border-radius-large);
+        box-shadow: var(--shadow);
+        transition-duration: var(--transition-duration);
+
+        @include hover {
+            background-color: var(--color-main);
+        }
+
+        &[open] {
+            --indicatorVerticalRotate: 0deg;
+
+            background-color: var(--color-main);
+        }
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 50px;
+            cursor: pointer;
+            user-select: none;
+
+            @include mobile {
+                column-gap: 20px;
+            }
+        }
+
+        &-title {
+            @include fluid-text(30, 18);
+
+            display: flex;
+            column-gap: 25px;
+            align-items: center;
+
+            @include mobile {
+                column-gap: 20px;
+                max-width: 200px;
+            }
+
+            &::before {
+                font-size: 2em;
+                counter-increment: custom;
+                content: '0' counter(custom);
+
+                @include mobile {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        &-body {
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: var(--border);
+        }
+
+        &-indicator {
+            @include flex-content;
+            @include square(58px);
+
+            @include mobile {
+                width: 30px;
+            }
+
+            flex-shrink: 0;
+            position: relative;
+            border: var(--border);
+            border-radius: 50%;
+            background-color: var(--color-gray);
+
+            &::before,
+            &::after {
+                // @include abs-center;
+
+                content: '';
+                position: absolute;
+                width: 40%;
+                height: 10%;
+                background-color: var(--color-dark);
+            }
+
+
+            &::after {
+                rotate: var(--indicatorVerticalRotate);
+                transition-duration: var(--transition-duration);
+            }
+        }
+    }
+}

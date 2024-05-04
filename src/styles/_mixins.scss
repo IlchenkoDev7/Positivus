@@ -1,0 +1,74 @@
+// Помогает динамически вычислять значения шрифта, учитывая максимально допустимое и минимально допустимое значение
+@mixin fluid-text($max: 48, $min: 16) {
+	font-size: clamp(#{$min}px, calc(#{$max} / 1440 * 100vw), #{$max}px);
+}
+
+// Сбрасывает все базовые стили ссылки
+@mixin reset-link {
+	color: inherit; // цвет текста наследуется от родительского элемента
+	
+	&,
+	&:hover {
+	    text-decoration: none; // при наведении на элемент, к которому применён миксин не будет никаких подчёркиваний
+	}
+}
+
+// Сбрасывает все базовые стили кнопки
+@mixin reset-button {
+	padding: 0;
+	background-color: transparent; // прозрачный цвет фона
+	border: none;
+}
+
+// Объявляет flex-контейнер и центрирует все элементы внутри него
+@mixin flex-content($isInline: false) {
+    @if $isInline {
+      display: inline-flex;
+    } @else {
+      display: flex;
+    }
+    
+    justify-content: center;
+    align-items: center;
+  }
+  
+// Позиционирование absolute-элемента по центру родительского relative блока
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Задаёт блоку одинковую ширину и высоту
+@mixin square($size) {
+	width: $size;
+	aspect-ratio: 1; // задаёт соотношение сторон блока в нашем случае 1 к 1
+}
+
+// Создаёт круг нужной ширины и высоты
+@mixin circle($size) {
+  @include square($size);
+  border-radius: 50%;
+}
+
+// Скрывает элемент правильно и по всем стандартам
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+// объявляет вертикальный flex-контейнер с отступами между внутренними элементами
+@mixin flex-column($rowGap: 20px) {
+	display: flex;
+	flex-direction: column;
+	row-gap: $rowGap;
+}
